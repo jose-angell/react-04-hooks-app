@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { FormUser } from './01-useState/FormUser'
+import { UserDataOnesTimes } from './02-useEffect/UserDataOnesTimes'
+// import { FormUser } from './01-useState/FormUser'
 // import { ToggleMessage } from './01-useState/ToggleMessage'
 // import { CounterBasic } from './01-useState/CounterBasic'
 // import { HooksApp } from './HooksApp'
@@ -21,6 +22,7 @@ createRoot(document.getElementById('root')!).render(
     {/* <FocusScreen/> */}
     {/* <CounterBasic /> */}
     {/* <ToggleMessage /> */}
-    <FormUser />
+    {/* <FormUser /> */}
+    <UserDataOnesTimes />
   </StrictMode>,
 )
