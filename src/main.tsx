@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { UserDataOnesTimes } from './02-useEffect/UserDataOnesTimes'
+import { ChangeTitleWithCounter } from './02-useEffect/ChangeTitleWithCounter'
+// import { UserDataOnesTimes } from './02-useEffect/UserDataOnesTimes'
 // import { FormUser } from './01-useState/FormUser'
 // import { ToggleMessage } from './01-useState/ToggleMessage'
 // import { CounterBasic } from './01-useState/CounterBasic'
@@ -23,6 +24,7 @@ createRoot(document.getElementById('root')!).render(
     {/* <CounterBasic /> */}
     {/* <ToggleMessage /> */}
     {/* <FormUser /> */}
-    <UserDataOnesTimes />
+    {/* <UserDataOnesTimes /> */}
+    <ChangeTitleWithCounter/>
   </StrictMode>,
 )
