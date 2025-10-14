@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { CleanningOfEffect } from './02-useEffect/CleanningOfEffect'
+import { RenderCount } from './04-useRef/RenderCount'
+// import { CleanningOfEffect } from './02-useEffect/CleanningOfEffect'
 // import { ChangeTitleWithCounter } from './02-useEffect/ChangeTitleWithCounter'
 // import { UserDataOnesTimes } from './02-useEffect/UserDataOnesTimes'
 // import { FormUser } from './01-useState/FormUser'
@@ -27,6 +28,7 @@ createRoot(document.getElementById('root')!).render(
     {/* <FormUser /> */}
     {/* <UserDataOnesTimes /> */}
     {/* <ChangeTitleWithCounter/> */}
-    <CleanningOfEffect/>
+    {/* <CleanningOfEffect/> */}
+    <RenderCount />
   </StrictMode>,
 )
