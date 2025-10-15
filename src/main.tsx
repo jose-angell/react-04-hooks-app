@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { Cronometro } from './03-examples/Cronometro'
+import { TasksApp } from './05-useReducet/TasksApp'
+// import { Cronometro } from './03-examples/Cronometro'
 // import { TimeoutManager } from './04-useRef/TimeoutManager'
 // import { RenderCount } from './04-useRef/RenderCount'
 // import { CleanningOfEffect } from './02-useEffect/CleanningOfEffect'
@@ -33,6 +34,7 @@ createRoot(document.getElementById('root')!).render(
     {/* <CleanningOfEffect/> */}
     {/* <RenderCount /> */}
     {/* <TimeoutManager/> */}
-    <Cronometro/>
+    {/* <Cronometro/> */}
+    <TasksApp/>
   </StrictMode>,
 )
