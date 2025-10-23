@@ -13,8 +13,6 @@ export interface ScrambleWordsState {
     totalWoords: number;
 }
 
-export type ScrambleWordsAction =
-{ type: 'SET_GUESS', payload: string} 
 
 
 const GAME_WORDS = [
@@ -63,10 +61,56 @@ export const getInitialState = (): ScrambleWordsState => {
     totalWoords: shuffledWords.length
 }
 }
+export type ScrambleWordsAction =
+{ type: 'SET_GUESS', payload: string} |
+{ type: 'Check_ANSWER'} |
+{ type: 'START_NEW_GAME', payload: ScrambleWordsState} |
+{ type: 'SKIP_WORD' };
 
 export const scrambleWordReducer = (state: ScrambleWordsState, action: ScrambleWordsAction): ScrambleWordsState => {
 
     switch(action.type){
+        case 'SET_GUESS':
+            return {
+                ...state,
+                guess: action.payload.trim().toUpperCase()
+            }
+        case 'Check_ANSWER': {
+            if(state.guess === state.currentWord){
+                const newWords = state.words.slice(1);
+
+                return {
+                    ...state,
+                    words: newWords,
+                    points: state.points + 1,
+                    guess: '',
+                    currentWord: newWords[0],
+                    scrambledWord: scrambleWord(newWords[0])
+                }
+            }
+            return {
+                ...state,
+                errorCounter: state.errorCounter + 1,
+                guess: '',
+                isGameOver: state.errorCounter + 1 >=  state.maxAllowErrors,
+            }
+        }
+        case 'SKIP_WORD': {
+            if(state.skipCounter >= state.maxSkips) return state;
+            const updatedWords = state.words.slice(1);
+
+            return {
+                ...state,
+                skipCounter: state.skipCounter + 1,
+                words: updatedWords,
+                currentWord: updatedWords[0],
+                scrambledWord: scrambleWord(updatedWords[0]),
+                guess: ''
+            }
+        }
+        case 'START_NEW_GAME':{
+            return action.payload;
+        }
         default:
             return state;
     }
