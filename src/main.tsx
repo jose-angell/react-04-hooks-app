@@ -1,7 +1,8 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
-import { MemoHook } from './06-memos/MemoHook'
+import { MemoCounter } from './06-memos/MemoCounter'
+// import { MemoHook } from './06-memos/MemoHook'
 // import { ScrambleWords } from './05-useReducet/ScrambleWords'
 // import { TasksApp } from './05-useReducet/TasksApp'
 // import { Cronometro } from './03-examples/Cronometro'
@@ -39,6 +40,7 @@ createRoot(document.getElementById('root')!).render(
     {/* <Cronometro/> */}
     {/* <TasksApp/> */}
     {/* <ScrambleWords/> */}
-    <MemoHook/>
+    {/* <MemoHook/> */}
+    <MemoCounter/>
   </StrictMode>,
 )
