@@ -1,5 +1,5 @@
 import { useOptimistic, useState, useTransition } from 'react';
-
+import {  toast } from 'sonner'
 interface Comment {
   id: number;
   text: string;
@@ -34,10 +34,22 @@ export const InstagromApp = () => {
 // este medoto permite que la actualizacion del estado no bloquee la interfaz de usuario
     startTransition(async () => {
       await new Promise(resolve => setTimeout(resolve, 3000));
-      setComments(prev => [...prev, {
-          id: new Date().getTime(),
-          text: messageText?.toString(),
-      }]);
+      // setComments(prev => [...prev, {
+      //     id: new Date().getTime(),
+      //     text: messageText?.toString(),
+      // }]);
+
+      //! Este seria el codigo para revertir el proceso
+      setComments(prev => prev);
+      toast('Error al agregar el comentario', {
+        description: 'Intente nuevamente',
+        duration: 10_000,
+        position: 'top-right',
+        action: {
+          label: 'Cerrar',
+          onClick: () => toast.dismiss(),
+        }
+      })
     })
 
   };
