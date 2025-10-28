@@ -1,4 +1,4 @@
-import { useOptimistic, useState } from 'react';
+import { useOptimistic, useState, useTransition } from 'react';
 
 interface Comment {
   id: number;
@@ -6,13 +6,17 @@ interface Comment {
   optimistic?: boolean;
 }
 
+let lastId = 1;
+
 export const InstagromApp = () => {
+  const [isPending, startTransition] = useTransition();
   const [comments, setComments] = useState<Comment[]>([
     { id: 1, text: '¡Gran foto!' },
     { id: 2, text: 'Me encanta 🧡' },
   ]);
 
   const [optimisticComments, addOptimisticComments] = useOptimistic(comments,(currentComments, newComment:string) => {
+    lastId++;
     return [...currentComments, {
         id : new Date().getTime(),
         text: newComment,
@@ -26,11 +30,16 @@ export const InstagromApp = () => {
     addOptimisticComments(messageText);
     // simula la petiicion http al servidor
     console.log('Nuevo comentario',messageText);
-    await new Promise(resolve => setTimeout(resolve, 3000));
-    setComments(prev => [...prev, {
-        id: new Date().getTime(),
-        text: messageText?.toString(),
-    }])
+
+// este medoto permite que la actualizacion del estado no bloquee la interfaz de usuario
+    startTransition(async () => {
+      await new Promise(resolve => setTimeout(resolve, 3000));
+      setComments(prev => [...prev, {
+          id: new Date().getTime(),
+          text: messageText?.toString(),
+      }]);
+    })
+
   };
 
   return (
@@ -76,7 +85,7 @@ export const InstagromApp = () => {
         />
         <button
           type="submit"
-          disabled={false}
+          disabled={isPending}
           className="bg-blue-500 text-white p-2 rounded-md w-full"
         >
           Enviar
