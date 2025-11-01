@@ -5,7 +5,7 @@ import { users, type User } from "../data/user-mock.data";
 //     children: React.ReactNode;
 // }
 
-type AuthStatus = 'cheacking' | 'authenticated' | 'not-authenticated';
+type AuthStatus = 'checking' | 'authenticated' | 'not-authenticated';
 
 interface UserCoontextProps {
   //sate
@@ -55,7 +55,7 @@ useEffect(() => {
   handleLogout();
 }, [])
   return <UserContext value={{
-    authStatus:'cheacking',
+    authStatus: authStatus,
     isAuthenticated : authStatus === 'authenticated',
     user:user,
     login: handlelogin,

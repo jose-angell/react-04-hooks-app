@@ -15,6 +15,7 @@ const handleSubmit = (event:React.FormEvent<HTMLFormElement>) => {
     toast.error("Usuario no encontrado");
     return;
   }
+  console.log(result)
   navigation('/profile')
 }
 
