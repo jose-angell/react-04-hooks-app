@@ -11,6 +11,7 @@ interface UserCoontextProps {
   //sate
   authStatus: AuthStatus;
   user: User | null;
+  isAuthenticated: boolean;
 
   //methods
   login: (userId: number) => boolean;
@@ -55,6 +56,7 @@ useEffect(() => {
 }, [])
   return <UserContext value={{
     authStatus:'cheacking',
+    isAuthenticated : authStatus === 'authenticated',
     user:user,
     login: handlelogin,
     logout: handleLogout
