@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import './index.css'
 import { Toaster } from 'sonner'
 import { ProfessionalApp } from './09-useContext/ProfessionalApp'
+import { CounterSimple } from './05-useReducet/counter/CounterSimple'
 // import { ClientInformation } from './08-use-suspense/ClientInformation'
 // import { getUserAction } from './08-use-suspense/api/get.user.action'
 // import { InstagromApp } from './07-useOptimistic/InstagromApp'
@@ -55,6 +56,7 @@ createRoot(document.getElementById('root')!).render(
     </h1>}>
       <ClientInformation getUser={getUserAction(101)}/>
     </Suspense> */}
-    <ProfessionalApp/>
+    {/* <ProfessionalApp/> */}
+    <CounterSimple/>
   </StrictMode>,
 )

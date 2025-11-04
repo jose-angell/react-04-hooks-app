@@ -24,7 +24,7 @@ export const UserContext = createContext({} as UserCoontextProps);
 
 // HOC -> Higher Order Component
 export const UserContextProvider = ({children}: PropsWithChildren) => {
-const [authStatus, setAuthStatus] = useState<AuthStatus>('cheacking');
+const [authStatus, setAuthStatus] = useState<AuthStatus>('checking');
 const [user, setUser] = useState<User | null>(null);
 const handlelogin = (userId:number) => {
   const user = users.find(user => user.id === userId);
