@@ -4,16 +4,18 @@ export interface CounterStepState {
     step: number;
 }
 
-export const getInitialState: CounterStepState ={
+export const getInitialState = (): CounterStepState => {
+    return {
     count: 0,
-    step: 1
+    step: 1,
+    }
 }
 
 export type CounterStepActions = 
 {type: "INCREMENTAR"} |
 {type: "DECREMENTAR"} |
 {type: "CAMBIAR_STEP", payload: number} |
-{type: "RESET" }
+{type: "RESET" , payload: CounterStepState}
 
 export const counterStepReducer = (state: CounterStepState, action:CounterStepActions): CounterStepState => {
     switch(action.type){
@@ -25,7 +27,7 @@ export const counterStepReducer = (state: CounterStepState, action:CounterStepAc
         case "DECREMENTAR":
             return {
                 ...state,
-                count: state.count + state.step
+                count: state.count - state.step
             }
         case "CAMBIAR_STEP":
             return {
