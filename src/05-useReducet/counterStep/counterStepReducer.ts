@@ -15,7 +15,7 @@ export type CounterStepActions =
 {type: "INCREMENTAR"} |
 {type: "DECREMENTAR"} |
 {type: "CAMBIAR_STEP", payload: number} |
-{type: "RESET" , payload: CounterStepState}
+{type: "RESET"}
 
 export const counterStepReducer = (state: CounterStepState, action:CounterStepActions): CounterStepState => {
     switch(action.type){
@@ -35,11 +35,7 @@ export const counterStepReducer = (state: CounterStepState, action:CounterStepAc
                 step: action.payload
             }
         case "RESET":
-            return {
-                ...state,
-                count: 0,
-                step: 1
-            }
+            return getInitialState()
         default:
             return state
     }

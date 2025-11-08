@@ -33,7 +33,7 @@ const handleClickIncrement = () => {
                     min="1"
                 />
         <button
-          onClick={() =>dispatch({type:'RESET', payload: getInitialState()})}
+          onClick={() =>dispatch({type:'RESET'})}
           className="bg-red-500 text-white px-4 py-2 rounded-md cursor-pointer">Reset</button>
     </div>
   )
