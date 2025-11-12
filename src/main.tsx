@@ -2,10 +2,11 @@ import { StrictMode, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import { Toaster } from 'sonner'
+import { ConfigurationToggle } from './05-useReducet/configurationToggle/ConfigurationToggle'
 // import { ProfessionalApp } from './09-useContext/ProfessionalApp'
 // import { CounterSimple } from './05-useReducet/counter/CounterSimple'
 // import { CounterStep } from './05-useReducet/counterStep/CounterStep'
-import { ListTasks } from './05-useReducet/listTask/ListTasks'
+// import { ListTasks } from './05-useReducet/listTask/ListTasks'
 // import { ClientInformation } from './08-use-suspense/ClientInformation'
 // import { getUserAction } from './08-use-suspense/api/get.user.action'
 // import { InstagromApp } from './07-useOptimistic/InstagromApp'
@@ -61,6 +62,7 @@ createRoot(document.getElementById('root')!).render(
     {/* <ProfessionalApp/> */}
     {/* <CounterSimple/> */}
     {/* <CounterStep/> */}
-    <ListTasks/>
+    {/* <ListTasks/> */}
+    <ConfigurationToggle/>
   </StrictMode>,
 )
